@@ -40,14 +40,6 @@ apply_gerrit_cl_commit() {
     fi
 }
 
-if [ "$SKIP_SYNC" != "TRUE" ]; then
-    pushd $ANDROOT/.repo/local_manifests
-    git pull
-    popd
-
-    repo sync -j8 --current-branch --no-tags
-fi
-
 pushd $ANDROOT/art
 LINK=$HTTP && LINK+="://android.googlesource.com/platform/art"
 #ART: Add support for ARMv8.x features for ARM64.
